@@ -3,10 +3,6 @@ pipeline{
   stages{
     stage('Test'){
       steps{
-        dockerNode(image: "ubuntu:16.04") {
-          git "https://github.com/wakaleo/game-of-life"
-          sh 'mvn clean test'
-        }
         sh 'py.test'
       }
     }
@@ -16,4 +12,9 @@ pipeline{
       }
     }
   }
+}
+
+dockerNode(image: "ubuntu:16.04") {
+  git "https://github.com/wakaleo/game-of-life"
+  sh 'mvn clean test'
 }
