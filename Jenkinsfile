@@ -6,5 +6,10 @@ pipeline{
         echo 'Hi'
       }
     }
+    stage('Run'){
+      steps{
+        sh 'python3 app.py'
+      }
+    }
   }
 }
