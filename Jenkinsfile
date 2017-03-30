@@ -16,5 +16,6 @@ pipeline{
 
 dockerNode(image: "ubuntu:16.04") {
   git "https://github.com/bnorbi95/CIpython.git"
+  sh 'apt-get update && apt install -y python-logilab-common'
   sh 'py.test'
 }
