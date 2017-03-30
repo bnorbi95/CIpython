@@ -15,6 +15,6 @@ pipeline{
 }
 
 dockerNode(image: "ubuntu:16.04") {
-  git "https://github.com/wakaleo/game-of-life"
-  sh 'mvn clean test'
+  git "https://github.com/bnorbi95/CIpython.git"
+  sh 'py.test'
 }
