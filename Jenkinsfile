@@ -14,8 +14,7 @@ pipeline{
   }
 }
 
-dockerNode(image: "ubuntu") {
-  git "https://github.com/bnorbi95/CIpython.git"
-  sh 'apt-get update && apt install -y python-logilab-common'
-  sh 'py.test'
+dockerNode(image: "maven:3.3.3-jdk-8", sideContainers: ["selenium/standalone-firefox"]) {
+  git "https://github.com/wakaleo/game-of-life"
+  sh 'mvn clean test'
 }
